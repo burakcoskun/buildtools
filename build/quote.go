@@ -237,7 +237,7 @@ func quote(unquoted string, triple bool) string {
 			buf.WriteByte(esc[c])
 			continue
 		}
-		if c < 0x20 || c >= 0x80 {
+/*		if c < 0x20 || c >= 0x80 {
 			// BUILD files are supposed to be Latin-1, so escape all control and high bytes.
 			// I'd prefer to use \x here, but Blaze does not implement
 			// \x in quoted strings (b/7272572).
@@ -250,9 +250,9 @@ func quote(unquoted string, triple bool) string {
 				buf.WriteByte('x')
 				buf.WriteByte(hex[c>>4])
 				buf.WriteByte(hex[c&0xF])
-			*/
+
 			continue
-		}
+		}*/
 		buf.WriteByte(c)
 		continue
 	}
