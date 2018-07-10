@@ -18,8 +18,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 package build
 
 import (
-	"path"
-	"regexp"
 	"sort"
 	"strings"
 
@@ -231,16 +229,16 @@ func fixLabels(f *File, info *RewriteInfo) {
 		*p = str1
 	}
 
-	labelPrefix := "//"
+/*	labelPrefix := "//"
 	if tables.StripLabelLeadingSlashes {
 		labelPrefix = ""
 	}
 	// labelRE matches label strings, e.g. @r//x/y/z:abc
 	// where $1 is @r//x/y/z, $2 is @r//, $3 is r, $4 is z, $5 is abc.
 	labelRE := regexp.MustCompile(`^(((?:@(\w+))?//|` + labelPrefix + `)(?:.+/)?([^:]*))(?::([^:]+))?$`)
-
+*/
 	shortenLabel := func(v Expr) {
-		str, ok := v.(*StringExpr)
+/*		str, ok := v.(*StringExpr)
 		if !ok {
 			return
 		}
@@ -277,7 +275,7 @@ func fixLabels(f *File, info *RewriteInfo) {
 		}
 		if editPerformed {
 			info.EditLabel++
-		}
+		}*/
 	}
 
 	Walk(f, func(v Expr, stk []Expr) {
